@@ -10,7 +10,7 @@ jobs:
     with:
       ref: ${{ github.event.ref }}
       packageName: package-for-development
-      linuxBuildArgs: '--desktop gpu --opencv cmake'
+      linuxBuildArgs: '--desktop cpu --opencv cmake'
       androidBuildArgs: '--android fat --android_ndk_api_level 21'
       macosBuildArgs: '--desktop cpu --opencv cmake --macos_universal'
       iosBuildArgs: '--ios arm64'
@@ -21,8 +21,8 @@ jobs:
     with:
       ref: ${{ github.event.ref }}
       packageName: package-for-production
-      linuxBuildArgs: '--linkopt="-s" --desktop gpu --opencv cmake'
+      linuxBuildArgs: '--linkopt="-s" --desktop cpu --opencv cmake'
       androidBuildArgs: '--linkopt="-s" --android fat --android_ndk_api_level 21'
       macosBuildArgs: '--linkopt="-s" --desktop cpu --opencv cmake --macos_universal'
-      iosBuildArgs: '--linkopt="-s" --ios arm64'
+      iosBuildArgs: '--linkopt="-s" --no-apple_bitcode --ios arm64'
       windowsBuildArgs: '--desktop cpu --opencv cmake'
