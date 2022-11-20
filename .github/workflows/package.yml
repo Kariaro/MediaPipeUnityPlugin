@@ -13,16 +13,16 @@ on:
         default: '--experimental_scale_timeouts=10.0 --http_timeout_scaling=10.0'
       linuxBuildArgs:
         type: string
-        default: '--desktop gpu --opencv cmake'
+        default: '--linkopt="-s" --desktop cpu --opencv cmake'
       androidBuildArgs:
         type: string
-        default: '--android fat --android_ndk_api_level 21'
+        default: '--linkopt="-s" --android fat --android_ndk_api_level 21'
       macosBuildArgs:
         type: string
-        default: '--desktop cpu --opencv cmake --macos_universal'
+        default: '--linkopt="-s" --desktop cpu --opencv cmake --macos_universal'
       iosBuildArgs:
         type: string
-        default: '--ios arm64'
+        default: '--linkopt="-s" --no-apple_bitcode --ios arm64'
       windowsBuildArgs:
         type: string
         default: '--desktop cpu --opencv cmake'
